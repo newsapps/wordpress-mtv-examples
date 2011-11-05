@@ -69,7 +69,34 @@ function page( $request ) {
 
 }
 
-function search( $request ) {}
+function search( $request ) {
+    shortcuts\set_query_flags('search');
+
+    $page_num = ($request['page_num'])? $request['page_num']: 1;
+    $category = ($request['category'])? $request['category']: null;
+    $tag = ($request['tag'])? $request['tag']: null;
+
+    $args = array('post_type' => 'post',
+                  'posts_per_page' => 10,
+                  'order' => 'DESC',
+                  'paged' => $page_num);
+
+    if ($category) { $args['category_name'] = $category; }
+    if ($tag) { $args['tag'] = $tag; }
+    
+    $posts = PostCollection::filter($args);
+
+    $max_pages = $posts->wp_query->max_num_pages;
+    $more_posts = ($max_pages > 1 && $max_pages != $page_num)? true:false;
+
+    $template_array = array(
+        'page_num' => $page_num,
+        'more_posts' => $more_posts,
+        'posts' => $posts->models
+    );
+
+    shortcuts\display_template('index.html', $template_array);
+}
 
 function feed( $request ) {}
 
