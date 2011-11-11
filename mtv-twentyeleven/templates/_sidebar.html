@@ -20,6 +20,8 @@
     </ul>
     </aside>
 
+    {% else %}
+        {{ dynamic_sidebar( 'sidebar-1' ) }}
     {% endif %}
 </div><!-- #secondary .widget-area -->
 {% endif %}
