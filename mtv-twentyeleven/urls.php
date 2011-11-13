@@ -3,7 +3,7 @@
 $url_patterns = array(
     '/^$/' =>
         'twentyeleven\views\home',
-    '/^rss\/?$/' =>
+    '/^feed\/?$/' =>
         'twentyeleven\views\feed',
     '/^page\/?(?P<page_num>[0-9]+)\/?$/' =>
         'twentyeleven\views\home',
