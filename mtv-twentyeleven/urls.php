@@ -9,7 +9,7 @@ $url_patterns = array(
         'twentyeleven\views\home',
     '/^search\/?$/' =>
         'twentyeleven\views\search',
-    '/^tags\/?(?P<tag>[^\/]+)$/' =>
+    '/^tag\/?(?P<tag>[^\/]+)$/' =>
         'twentyeleven\views\search',
     '/^category\/?(?P<category>[^\/]+)$/' =>
         'twentyeleven\views\search',
