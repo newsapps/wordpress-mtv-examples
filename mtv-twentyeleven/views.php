@@ -98,7 +98,11 @@ function search( $request ) {
     shortcuts\display_template('index.html', $template_array);
 }
 
-function feed( $request ) {}
+function feed( $request ) {
+    // TODO: find a better way to handle feeds, as this only works for the main site feed
+    wp();
+    do_feed();
+}
 
 function date_archive( $request ) {}
 
